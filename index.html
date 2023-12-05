@@ -48,6 +48,39 @@
         width:50%;
         text-align: left;
       }
+
+      #slide-container {
+        text-align: center;
+        position:relative;
+      }
+
+      .button-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: -100px;
+      }
+
+      .button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 0 5px;
+      }
+
+      .slide-number-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: -50px;
+      }
+      
     </style>
 
     <style>
@@ -461,4 +494,52 @@ required.</pre>
 <p id="[4]">[4]Dai, Q. 2023, Research on the Application of Virtual Reality Technology in Practical Teaching in the Police Academy- With the Identification
   of Dangerous Goods as an Example, EDP Sciences, Les Ulis. Available at:<a href="https://doi.org/10.1051/shsconf/202315701004">https://doi.org/10.1051/shsconf/202315701004</a> [accessed on 1.12.23]</p>
   </pre>
+
+  <h2><b>Conference Project: Applications of Virtual Reality beyond recreational activities</b></h2>
+<script>
+  var slideImages = ["Slide1.png","Slide2.png","Slide3.png","Slide4.png","Slide5.png"];
+  var currentSlide =0;
+
+  function showSlide() {
+    document.getElementByID('slide').src = slideImages[currentSlide];
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideImages.length;
+    showSlide();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide -1 + slideImages.length) % slideImages.length;
+    showSlide();
+  }
+
+  function showSlideNumber(slideNumber) {
+    currentSlide = slideNumber - 1;
+    showSlide();
+  }
+
+  showSlide();
+  
+</script>
+
+  <div id="slide-container">
+    <img id="slide" src="Slide1.png" alt="Slide 1" style="width:100%; max-width:800px;">
+  </div>
+
+  <div class ="button-container">
+    <button class="button" onclick="prevSlide()">Previous</button>
+    <button class="button" onclick="nextSlide()">Next</button>
+  </div>
+
+  <div class="slide-number-container">
+    <button class="button" onclick="showSlideNumber(1)">1</button>
+    <button class="button" onclick="showSlideNumber(2)">2</button>
+    <button class="button" onclick="showSlideNumber(3)">3</button>
+    <button class="button" onclick="showSlideNumber(4)">4</button>
+    <button class="button" onclick="showSlideNumber(5)">5</button>
+  </div>
+
+  
+  
 </html>
